@@ -1,3 +1,5 @@
+App.js
+
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
 import {
@@ -218,15 +220,8 @@ const App = () => {
 
                 
 
-                <TextField
-                  variant="outlined"
-                  placeholder="Search"
-                  size="small"
-                  value={searchQuery}
-                  onChange={handleSearchChange}
-                  sx={{ mr: 2, width: 200, color: darkMode ? 'white' : 'black' }}
-                  InputProps={{ style: { color: darkMode ? 'white' : 'black' } }}
-                />
+                
+                
 
                 <Button 
                   color="inherit" 
@@ -237,19 +232,7 @@ const App = () => {
                   Location
                 </Button>
 
-                <IconButton color="inherit" onClick={handleMenuOpen}>
-                  <TuneIcon />
-                </IconButton>
-
-                <Menu
-                  anchorEl={anchorEl}
-                  open={Boolean(anchorEl)}
-                  onClose={handleMenuClose}
-                >
-                  <MenuItem onClick={toggleDarkMode}>
-                    Toggle Dark Mode
-                  </MenuItem>
-                </Menu>
+               
 
                 {currentUser ? (
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>

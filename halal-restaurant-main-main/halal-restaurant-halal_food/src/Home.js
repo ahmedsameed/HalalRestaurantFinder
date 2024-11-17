@@ -1,4 +1,3 @@
-// Home.js
 import React from 'react';
 import { Box, Typography, Grid, Avatar } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
@@ -30,7 +29,7 @@ const Home = () => {
             <Box sx={{ textAlign: 'center', cursor: 'pointer' }}>
               <Avatar
                 src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/71/69/3e/barley-board.jpg?w=600&h=400&s=1"
-                sx={{ width: 100, height: 100, margin: '0 auto', mb: 1 }}
+                alt="A description of the image" sx={{ width: 100, height: 100, margin: '0 auto', mb: 1 }}
               />
               <Typography variant="subtitle1">Find a Restaurant</Typography>
             </Box>
@@ -39,7 +38,7 @@ const Home = () => {
             <Box sx={{ textAlign: 'center', cursor: 'pointer' }}>
               <Avatar
                 src="https://fitmealsprep.com/wp-content/uploads/2023/08/Fit-Meals-Prep_Top-Reasons-Why-Using-Fresh-Ingredients-Really-Matters.jpg"
-                sx={{ width: 100, height: 100, margin: '0 auto', mb: 1 }}
+                alt="A description of the image"  sx={{ width: 100, height: 100, margin: '0 auto', mb: 1 }}
               />
               <Typography variant="subtitle1">Create a Recipe</Typography>
             </Box>
@@ -48,7 +47,7 @@ const Home = () => {
             <Box sx={{ textAlign: 'center', cursor: 'pointer' }}>
               <Avatar
                 src="https://media.licdn.com/dms/image/v2/C4D12AQG75b1ljQpmfw/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1575750754638?e=2147483647&v=beta&t=DqKwraAyk43NiJ1UPpxT4hXYONhluWj-jnQz1-bZr7w"
-                sx={{ width: 100, height: 100, margin: '0 auto', mb: 1 }}
+                alt="A description of the image" sx={{ width: 100, height: 100, margin: '0 auto', mb: 1 }}
               />
               <Typography variant="subtitle1">donate</Typography>
             </Box>
@@ -57,7 +56,7 @@ const Home = () => {
             <Box sx={{ textAlign: 'center', cursor: 'pointer' }}>
               <Avatar
                 src="https://media.licdn.com/dms/image/v2/C4D12AQG75b1ljQpmfw/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1575750754638?e=2147483647&v=beta&t=DqKwraAyk43NiJ1UPpxT4hXYONhluWj-jnQz1-bZr7w"
-                sx={{ width: 100, height: 100, margin: '0 auto', mb: 1 }}
+                alt="A description of the image" sx={{ width: 100, height: 100, margin: '0 auto', mb: 1 }}
               />
               <Typography variant="subtitle1">AlternativeFoodWaste</Typography>
             </Box>
