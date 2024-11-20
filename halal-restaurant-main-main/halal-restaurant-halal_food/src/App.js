@@ -1,5 +1,3 @@
-App.js
-
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
 import {
@@ -88,11 +86,7 @@ const App = () => {
     handleMenuClose();
   };
 
-  const theme = createTheme({
-    palette: {
-      mode: darkMode ? 'dark' : 'light',
-    },
-  });
+  const theme = createTheme({ palette: { mode: darkMode ? 'dark' : 'light', primary: { main: '#6200ea', }, background: { default: darkMode ? '#121212' : '#f4f4f4', paper: darkMode ? '#333' : '#fff', }, text: { primary: darkMode ? '#ffffff' : '#000000', secondary: darkMode ? '#bbbbbb' : '#555555', }, }, typography: { allVariants: { color: darkMode ? '#ffffff' : '#000000', }, }, });
 
   const toggleFavorite = (index, event) => {
     event.stopPropagation();
@@ -129,6 +123,10 @@ const App = () => {
 
   const handleLogout = async () => {
     await signOut(auth);
+  };
+  // Route Protection Wrapper
+  const ProtectedRoute = ({ children }) => {
+    return currentUser ? children : <Navigate to="/login" />;
   };
 
   return (
@@ -220,8 +218,15 @@ const App = () => {
 
                 
 
-                
-                
+                <TextField
+                  variant="outlined"
+                  placeholder="Search"
+                  size="small"
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  sx={{ mr: 2, width: 200, color: darkMode ? 'white' : 'black' }}
+                  InputProps={{ style: { color: darkMode ? 'white' : 'black' } }}
+                />
 
                 <Button 
                   color="inherit" 
@@ -232,7 +237,19 @@ const App = () => {
                   Location
                 </Button>
 
-               
+                <IconButton color="inherit" onClick={handleMenuOpen}>
+                  <TuneIcon />
+                </IconButton>
+
+                <Menu
+                  anchorEl={anchorEl}
+                  open={Boolean(anchorEl)}
+                  onClose={handleMenuClose}
+                >
+                  <MenuItem onClick={toggleDarkMode}>
+                    Toggle Dark Mode
+                  </MenuItem>
+                </Menu>
 
                 {currentUser ? (
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -344,7 +361,7 @@ const App = () => {
   <Route path="/hummus" element={<Hummus />} />
   <Route path="/zaatar-pie" element={<ZaatarPie />} />
 
-  {/* Other existing routes */}
+  {/* Other existing routes
   <Route path="/restaurant/:id" element={<RestaurantDetail />} />
   <Route path="/location1" element={<Location1 />} />
   <Route path="/make-recipe" element={<MakeRecipe />} />
@@ -352,8 +369,28 @@ const App = () => {
   <Route path="/login" element={<Login />} />
   <Route path="/signup" element={<Signup />} />
   <Route path="/food-waste" element={<FoodWaste />} />
-  <Route path="/Alternative" element={<AlternativeFoodWaste />} />
-  <Route path="/Shelter" element={<Shelter />} />
+  <Route path="/Alternative" element={<AlternativeFoodWaste />} /> */}
+  
+  
+  <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+  <Route path="/restaurant/:id" element={<ProtectedRoute><RestaurantDetail /></ProtectedRoute>} />
+  <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+
+  <Route path="/make-recipe" element={<ProtectedRoute><MakeRecipe /></ProtectedRoute>} />
+  <Route path="/create-recipe" element={<ProtectedRoute><CreateRecipe /></ProtectedRoute>} />
+  <Route path="/food-waste" element={<ProtectedRoute><FoodWaste /></ProtectedRoute>} />
+  <Route path="Alternative" element={<ProtectedRoute><AlternativeFoodWaste /></ProtectedRoute>} />
+  <Route path="/Shelter" element={<ProtectedRoute><Shelter /></ProtectedRoute>} />
+  <Route path="/location1" element={<ProtectedRoute><Location1 /></ProtectedRoute>} />
+  <Route path="/login" element={<Login />} />
+  <Route path="/signup" element={<Signup />} />
+  <Route path="/restaurant/:id" element={<ProtectedRoute><RestaurantDetail /></ProtectedRoute>} />
+  <Route path="/food-waste" element={<ProtectedRoute><FoodWaste /></ProtectedRoute>} />
+
+
+
+
+
 
             </Routes>
           </Box>
