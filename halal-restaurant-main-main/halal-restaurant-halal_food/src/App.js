@@ -275,7 +275,7 @@ const App = () => {
               {/* New Home Page Route */}
               <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
               
-              {/* Existing content mapped to /dashboard */}
+             
               <Route
                 path="/dashboard"
                 element={
@@ -373,6 +373,7 @@ const App = () => {
   
   
   <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+
   <Route path="/restaurant/:id" element={<ProtectedRoute><RestaurantDetail /></ProtectedRoute>} />
   <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
 
