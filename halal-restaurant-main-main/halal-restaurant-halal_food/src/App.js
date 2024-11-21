@@ -273,7 +273,7 @@ const App = () => {
 
             <Routes>
               {/* New Home Page Route */}
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
               
               {/* Existing content mapped to /dashboard */}
               <Route
